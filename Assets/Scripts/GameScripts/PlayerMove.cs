@@ -19,7 +19,7 @@ public class PlayerMove : MonoBehaviour
     private Rigidbody body;
     private float rotationY;
     private float rotationX;
-    public float sensitivity = 2f;
+    public float sensitivity = 0.5f;
     public float headMinY = -10f;
     public float headMaxY = 10f;
 
@@ -53,15 +53,15 @@ public class PlayerMove : MonoBehaviour
     bool GetJump()
     {
         GetComponent<Animator>().SetTrigger("Jump");
-        bool result = false;
+        bool Canjump = false;
         RaycastHit hit;
         Ray ray = new Ray(transform.position, Vector3.down);
         if (Physics.Raycast(ray, out hit, jumpDistance, layerMask))
         {
-            result = true;
+            Canjump = true;
         }
 
-        return result;
+        return Canjump;
     }
 
     public void JumpPlayer()
@@ -80,16 +80,17 @@ public class PlayerMove : MonoBehaviour
         hc = CamJoystic.Horizontal;
         vc = CamJoystic.Vertical;
 
-
+        //Rotate Camera
         float rotationX = rotate.localEulerAngles.y + hc * sensitivity;
         rotationY += vc * sensitivity;
         rotationY = Mathf.Clamp(rotationY, headMinY, headMaxY);
-
         rotate.localEulerAngles = new Vector3(-rotationY, rotationX, 0);
 
+        //Move Player
         direction = new Vector3(h, 0, v);
         direction = rotate.TransformDirection(direction);
         direction = new Vector3(direction.x, 0, direction.z);
+        //Animate Player
         if (v != 0) { GetComponent<Animator>().SetBool("Run", true); }
         else { GetComponent<Animator>().SetBool("Run", false); }
     }

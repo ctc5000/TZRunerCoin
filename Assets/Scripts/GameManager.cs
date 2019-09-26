@@ -6,24 +6,24 @@ using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
-    //Рабочие переменные
+    //Working variables
     public bool GameOver;
+    public int CurrientScore;
 
-    //Объекты
+    //Objects
     public GameObject Player;
     public GameObject PlayerPrefab;
     public Transform StartPosition;
     public VariableJoystick Joystick;
     public VariableJoystick CamJoystick;
-    public GameObject jumpBtn;
+  
+    //Ui objects 
     public Text TimerText;
     public Text ScoreText;
-    public int CurrientScore;
     public GameObject EndPanel;
 
-
     //TimeWork
-     public float StartTime = 60;
+    public float StartTime = 60;
      float LetTime;
 
 
@@ -38,35 +38,6 @@ public class GameManager : MonoBehaviour
         ScoreText = GameObject.Find("ScoreText").GetComponent<Text>();
         LetTime = StartTime;
     }
-    public void AddCoin()
-    {
-        CurrientScore += 1;
-        ScoreText.text = CurrientScore.ToString();
-    }
-
-    public void GameStop(string type)
-    {
-        if (type == "Lose")
-        {
-            GameOver = true;
-            Player.GetComponent<Animator>().SetTrigger("Death");
-            GameObject Panel =   Instantiate(EndPanel);
-            Panel.transform.Find("Text").GetComponent<Text>().text = "Вы проиграли со счетом: " + CurrientScore.ToString() + " Монет";
-            Panel.transform.parent = GameObject.Find("Canvas").transform;
-            Panel.GetComponent<RectTransform>().offsetMin = new Vector2(0, 0);
-            Panel.GetComponent<RectTransform>().offsetMax = new Vector2(0, 0);
-        }
-        if (type == "Finish")
-        {
-            GameObject Panel = Instantiate(EndPanel);
-            Panel.transform.Find("Text").GetComponent<Text>().text = "Вы выиграли со счетом: "+ CurrientScore.ToString()+" Монет";
-            Panel.transform.parent = GameObject.Find("Canvas").transform;
-            Panel.GetComponent<RectTransform>().offsetMin = new Vector2(0, 0);
-            Panel.GetComponent<RectTransform>().offsetMax = new Vector2(0, 0);
-        }
-        
-    }
-
     void FixedUpdate()
     {
         if (!GameOver)
@@ -80,7 +51,33 @@ public class GameManager : MonoBehaviour
             }
             if (Player.transform.position.y < -2) GameStop("Lose");
         }
-      
+
     }
+
+
+    public void AddCoin()
+    {
+        CurrientScore += 1;
+        ScoreText.text = CurrientScore.ToString();
+    }
+
+    public void GameStop(string type)
+    {
+        if (type == "Lose")
+        {
+            GameOver = true;
+            Player.GetComponent<Animator>().SetTrigger("Death");
+            GameObject Panel =   Instantiate(EndPanel);
+
+            GetComponent<ObjectGenerator>().EndPanelCreator(CurrientScore, "Вы проиграли! Но вы успели собрать: ");
+        }
+        if (type == "Finish")
+        {
+            GetComponent<ObjectGenerator>().EndPanelCreator(CurrientScore, "Вы выиграли со счетом: ");
+        }
+        
+    }
+
+ 
 
 }

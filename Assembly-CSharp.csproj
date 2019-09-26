@@ -62,21 +62,18 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\Joystick Pack\Examples\JoystickPlayerExample.cs" />
-    <Compile Include="Assets\Joystick Pack\Examples\JoystickSetterExample.cs" />
-    <Compile Include="Assets\Joystick Pack\Scripts\Base\Joystick.cs" />
-    <Compile Include="Assets\Joystick Pack\Scripts\Joysticks\DynamicJoystick.cs" />
-    <Compile Include="Assets\Joystick Pack\Scripts\Joysticks\FixedJoystick.cs" />
-    <Compile Include="Assets\Joystick Pack\Scripts\Joysticks\FloatingJoystick.cs" />
-    <Compile Include="Assets\Joystick Pack\Scripts\Joysticks\VariableJoystick.cs" />
     <Compile Include="Assets\Scripts\GameManager.cs" />
-    <Compile Include="Assets\Scripts\GameScripts\CamControll.cs" />
     <Compile Include="Assets\Scripts\GameScripts\ObjectGenerator.cs" />
     <Compile Include="Assets\Scripts\GameScripts\PlayerController.cs" />
     <Compile Include="Assets\Scripts\GameScripts\PlayerMove.cs" />
+    <Compile Include="Assets\Scripts\Joystick Pack\Scripts\Base\Joystick.cs" />
+    <Compile Include="Assets\Scripts\Joystick Pack\Scripts\Joysticks\DynamicJoystick.cs" />
+    <Compile Include="Assets\Scripts\Joystick Pack\Scripts\Joysticks\FixedJoystick.cs" />
+    <Compile Include="Assets\Scripts\Joystick Pack\Scripts\Joysticks\FloatingJoystick.cs" />
+    <Compile Include="Assets\Scripts\Joystick Pack\Scripts\Joysticks\VariableJoystick.cs" />
     <Compile Include="Assets\Scripts\UiScripts\JumpBtn.cs" />
     <Compile Include="Assets\Scripts\UiScripts\RestartGame.cs" />
-    <None Include="Assets\Yurowm\Shaders\SkinShader.shader" />
+    <None Include="Assets\Prefabs\Yurowm\Shaders\SkinShader.shader" />
     <Reference Include="Unity.Timeline.Editor">
       <HintPath>F:/Unity_project/TZRuner/TZRunerCoin/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
     </Reference>

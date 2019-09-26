@@ -154,6 +154,8 @@ MonoBehaviour:
     type: 3}
   WallPrefab: {fileID: 6950795049404449480, guid: 4a2b11952b152ef44a9947f9f616f18a,
     type: 3}
+  EndPanel: {fileID: 8797671468909659329, guid: e22d5f990f189a7438ad66a9ef91b468,
+    type: 3}
 --- !u!4 &77574655
 Transform:
   m_ObjectHideFlags: 0
@@ -181,16 +183,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   GameOver: 0
+  CurrientScore: 0
   Player: {fileID: 0}
   PlayerPrefab: {fileID: 2543234740497552323, guid: 977e162c648f4f4478f96af83d5bdacf,
     type: 3}
   StartPosition: {fileID: 1756130655}
   Joystick: {fileID: 1420409852}
   CamJoystick: {fileID: 2047532122}
-  jumpBtn: {fileID: 0}
   TimerText: {fileID: 0}
   ScoreText: {fileID: 0}
-  CurrientScore: 0
   EndPanel: {fileID: 8797671468909659329, guid: e22d5f990f189a7438ad66a9ef91b468,
     type: 3}
   StartTime: 60
@@ -535,10 +536,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9722cab46d5d0fd45a2fbfd37fed0297, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  StartTime: 120
-  LetTime: 0
-  GM: {fileID: 77574656}
-  GameOn: 1
 --- !u!114 &360938257
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1173,10 +1170,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9722cab46d5d0fd45a2fbfd37fed0297, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  StartTime: 120
-  LetTime: 0
-  GM: {fileID: 77574656}
-  GameOn: 1
 --- !u!114 &1033494339
 MonoBehaviour:
   m_ObjectHideFlags: 0
